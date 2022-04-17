@@ -7,6 +7,7 @@ import Header from "./Components/Shared/Header/Header";
 import About from "./Components/Pages/About/About";
 import Login from "./Components/Pages/Login/Login";
 import PageNotFound from "./Components/Shared/PageNotFound/PageNotFound";
+import Register from "./Components/Pages/Register/Register";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
     </>
