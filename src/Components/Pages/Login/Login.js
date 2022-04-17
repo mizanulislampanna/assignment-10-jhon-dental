@@ -46,7 +46,7 @@ const Login = () => {
           type="submit"
           className="btn btn-primary px-5 mt-3 mx-auto d-block"
         >
-          Submit
+          Login
         </button>
       </form>
     </>
