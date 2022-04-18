@@ -1,10 +1,16 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div>
-      <h2>This is footer</h2>
-    </div>
+    <footer className="footer-container">
+      <div className="bg-dark">
+        <p className="text-center text-white">&copy; 2022 </p>
+        <p className="text-center text-white">
+          Devoloped BY Mizanul Islam Panna
+        </p>
+      </div>
+    </footer>
   );
 };
 

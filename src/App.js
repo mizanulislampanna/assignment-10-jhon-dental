@@ -12,6 +12,8 @@ import ServicePage from "./Components/Pages/ServicePage/ServicePage";
 import RequireAuth from "./Components/Pages/Login/RequireAuth/RequireAuth";
 import ProccedCheckout from "./Components/Pages/ProccedCheckout/ProccedCheckout";
 import Complete from "./Components/Pages/ProccedCheckout/Complete";
+import About from "./Components/Pages/About/About";
+import Blogs from "./Components/Pages/Blogs/Blogs";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/Services" element={<ServicePage></ServicePage>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
         <Route
           path="/service/:serviceId"
           element={<ServiceDetail></ServiceDetail>}
