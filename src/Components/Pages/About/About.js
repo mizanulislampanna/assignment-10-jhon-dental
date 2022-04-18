@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div class="container">
       <div class="row">
-        <div class="col mt-5">
+        <div class="col-sm-12 col-md-6 mt-5">
           <h2 className="fw-bold mt-5">Mizanul Islam Panna</h2>
           <p className="fw-bold">
             I want to be a successful react developer . I want to build web
@@ -15,7 +15,7 @@ const About = () => {
             react developer list in the world .
           </p>
         </div>
-        <div class="col p-5">
+        <div class="col-sm-12 col-md-6 p-5">
           <img
             className="img-fluid "
             src="https://i.ibb.co/0myQYwK/38685408-2096258250691794-8849564218286931968-n.jpg"
