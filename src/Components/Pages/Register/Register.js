@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
 const Register = () => {
+  const [agree, setAgree] = useState(false);
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -34,6 +35,7 @@ const Register = () => {
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="User Name"
+          required
         />
       </div>
       <div class="form-group">
@@ -45,6 +47,7 @@ const Register = () => {
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="Enter email"
+          required
         />
       </div>
       <div class="form-group">
@@ -55,12 +58,18 @@ const Register = () => {
           class="form-control"
           id="exampleInputPassword1"
           placeholder="Password"
+          required
         />
       </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+      <div class="form-check mt-3">
+        <input
+          onClick={() => setAgree(!agree)}
+          type="checkbox"
+          class="form-check-input"
+          id="exampleCheck1"
+        />
         <label class="form-check-label" for="exampleCheck1">
-          Check me out
+          <small>Agree With term & condition</small>
         </label>
       </div>
       <div className=" my-2">

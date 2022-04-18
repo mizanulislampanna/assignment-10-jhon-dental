@@ -17,7 +17,7 @@ const Banner = () => {
         />
         <Carousel.Caption>
           <h3 className="fs-1 fw-bolder">Kids Care</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Spicial combo pack for KIds.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -29,7 +29,7 @@ const Banner = () => {
 
         <Carousel.Caption>
           <h3 className="text-dark fs-1 fw-bolder">Spicial Friday Sell</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>We have Spicial discount at Friday.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -41,9 +41,7 @@ const Banner = () => {
 
         <Carousel.Caption>
           <h3 className="fs-1 fw-bolder">50% Off for Firs Sign UP</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <p>Hurry Up and SignUp now . Don't miss This Offer.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
