@@ -8,6 +8,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin/SocialLogin";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -28,6 +30,7 @@ const Login = () => {
   const resetPassword = async () => {
     const email = emailRef.current.value;
     await sendPasswordResetEmail(email);
+    toast("Email Sent Successfully");
   };
 
   if (loading || sending) {
@@ -106,6 +109,7 @@ const Login = () => {
         </button>
       </form>
       <SocialLogin></SocialLogin>
+      <ToastContainer />
     </div>
   );
 };

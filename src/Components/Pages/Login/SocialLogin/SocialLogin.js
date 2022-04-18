@@ -16,10 +16,6 @@ const SocialLogin = () => {
 
   let errorElement;
 
-  if (loading || loading2) {
-    return <Loading></Loading>;
-  }
-
   if (error || error2) {
     errorElement = (
       <div>
@@ -31,6 +27,9 @@ const SocialLogin = () => {
   }
   if (user || user2) {
     navigate(from, { replace: true });
+  }
+  if (loading || loading2) {
+    return <Loading></Loading>;
   }
   return (
     <div>

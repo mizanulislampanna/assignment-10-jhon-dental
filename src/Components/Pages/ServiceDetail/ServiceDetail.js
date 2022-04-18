@@ -5,6 +5,7 @@ const ServiceDetail = () => {
 
   return (
     <div>
+      <h2 className="text-center mt-5">One More Stape for Checkout</h2>
       <Link to={"/checkout"}>
         <button className="btn btn-primary my-5 mx-auto d-block">
           Procced checkOut
