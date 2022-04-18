@@ -1,10 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    signInWithEmailAndPassword(email, password);
   };
+  if (user) {
+    navigate(from, { replace: true });
+  }
   return (
     <>
       <form
@@ -15,6 +30,7 @@ const Login = () => {
         <div className="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input
+            name="email"
             type="email"
             className="form-control"
             id="exampleInputEmail1"
@@ -25,6 +41,7 @@ const Login = () => {
         <div className="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input
+            name="password"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
@@ -42,6 +59,7 @@ const Login = () => {
             </Link>
           </p>
         </div>
+
         <button
           type="submit"
           className="btn btn-primary px-5 mt-3 mx-auto d-block"
