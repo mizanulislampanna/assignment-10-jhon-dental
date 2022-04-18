@@ -1,6 +1,6 @@
 # Jhon Dental Care
 
-This project was bootstrapped with [Jhon Dental Care](https://jhon-dental.web.app/).
+Jhon Dental Care [Jhon Dental Care](https://jhon-dental.web.app/).
 
 • I create Home, services, About, LOgin, Register,404 , privet and other Routes.
 • Create user Works very good.
