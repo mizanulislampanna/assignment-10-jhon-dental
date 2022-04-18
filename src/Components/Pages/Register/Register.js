@@ -1,23 +1,35 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  if (loading || updating) {
+    return <Loading></Loading>;
+  }
 
   if (user) {
     navigate("/home");
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+    navigate("/home");
   };
 
   return (
@@ -69,7 +81,9 @@ const Register = () => {
           id="exampleCheck1"
         />
         <label class="form-check-label" for="exampleCheck1">
-          <small>Agree With term & condition</small>
+          <small className={agree ? "" : "text-danger"}>
+            Agree With terms & condition
+          </small>
         </label>
       </div>
       <div className=" my-2">
@@ -83,7 +97,11 @@ const Register = () => {
           </Link>
         </p>
       </div>
-      <button type="submit" class="btn btn-primary px-5 mt-3 mx-auto d-block">
+      <button
+        disabled={!agree}
+        type="submit"
+        class="btn btn-primary px-5 mt-3 mx-auto d-block"
+      >
         Register
       </button>
     </form>

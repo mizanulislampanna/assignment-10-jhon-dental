@@ -6,6 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin/SocialLogin";
 
 const Login = () => {
@@ -28,6 +29,11 @@ const Login = () => {
     const email = emailRef.current.value;
     await sendPasswordResetEmail(email);
   };
+
+  if (loading || sending) {
+    return <Loading></Loading>;
+  }
+
   let errorElement;
   if (error) {
     errorElement = (
